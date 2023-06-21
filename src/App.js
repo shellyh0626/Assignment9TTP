@@ -49,6 +49,8 @@ function App() {
           </ul>
         </nav>
         <br />
+        <br />
+        <h1 className="entry-page">Welcome to Bank of React ^ ^</h1>
 
         <Routes>
           <Route
