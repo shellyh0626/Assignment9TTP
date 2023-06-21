@@ -1,20 +1,16 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import Debits from "./Debits";
+import AccountBalance from "./AccountBalance";
 
-function Home() {
-  // return <h1>I AM HOME</h1>;
+function Home(props) {
   return (
-    <div>
-      <h1>I AM HOME</h1>
-
-      {/* <nav>
-        <ul>
-          <li>
-            <Link to="/Debits">Debits</Link>
-          </li>
-        </ul>
-      </nav> */}
+    <div className="homePage">
+      <h1>Account details</h1>
+      <AccountBalance
+        currCreditData={props.currCreditData}
+        currDebitData={props.currDebitData}
+      ></AccountBalance>
+      <p>Debit Amount: {props.currDebitData}</p>
+      <p>Credit Amount: {props.currCreditData}</p>
     </div>
   );
 }

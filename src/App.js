@@ -3,16 +3,14 @@ import axios from "axios";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import Home from "./components/Home";
-import UserProfile from "./components/UserProfile";
 import Debits from "./components/Debits";
 import Credits from "./components/Credits";
+import AccountBalance from "./components/AccountBalance";
 
 function App() {
   const [currCreditData, setCurrCreditData] = useState(0);
   const [currDebitData, setCurrDebitData] = useState(0);
-  const [balance, setBalance] = useState(0);
-  // const [updatedDebitData, setUpdatedDebitData] = useState([]);
-  // const [updatedCreditData, setUpdatedCreditData] = useState([]);
+
   useEffect(() => {
     async function getCreditInfo() {
       const result = await axios.get(
@@ -30,37 +28,40 @@ function App() {
     }
     getDebitInfo();
   }, []);
-  console.log(currCreditData);
-  console.log(currDebitData);
-
-  const accountBalance = () => {
-    setBalance(currCreditData - currDebitData);
-  };
+  // console.log(currCreditData);
+  // console.log(currDebitData);
 
   return (
     <Router>
       <div className="App">
         {/* Navigation */}
-        <nav>
-          <ul>
+        <nav className="nav-bar">
+          <ul className="list">
             <li>
               <Link to="/">Home</Link>
             </li>
-            <li>
-              <Link to="/userProfile">User Profile</Link>
-            </li>
-            <li>
+            <li className="listContent">
               <Link to="/Debits">Debits</Link>
             </li>
-            <li>
+            <li className="listContent">
               <Link to="/Credits">Credits</Link>
             </li>
           </ul>
         </nav>
+        <br />
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/userProfile/*" element={<UserProfile />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                currDebitData={currDebitData}
+                setCurrDebitData={setCurrDebitData}
+                currCreditData={currCreditData}
+                setCurrCreditData={setCurrCreditData}
+              />
+            }
+          />
           <Route
             path="/Debits/*"
             element={
@@ -68,9 +69,6 @@ function App() {
                 currDebitData={currDebitData}
                 setCurrDebitData={setCurrDebitData}
                 currCreditData={currCreditData}
-                setCurrCreditData={setCurrCreditData}
-                balance={balance}
-                // setBalance={setBalance}
               />
             }
           />
@@ -80,6 +78,16 @@ function App() {
               <Credits
                 currCreditData={currCreditData}
                 setCurrCreditData={setCurrCreditData}
+                currDebitData={currDebitData}
+              />
+            }
+          />
+          <Route
+            path="/AccountBalance/*"
+            element={
+              <AccountBalance
+                currCreditData={currCreditData}
+                currDebitData={currDebitData}
               />
             }
           />

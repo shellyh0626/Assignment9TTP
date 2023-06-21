@@ -1,13 +1,80 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.list {
+  width: 100%;
+  /* display: block; */
+}
+
+.list,
+.list li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  float: left;
+  display: block;
+}
+
+.list li a {
+  display: inline-block;
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: #1a1919;
+  color: #fff;
+  text-decoration: none;
+  border-right: 1px solid #000;
+  display: inline-block;
+}
+
+.list li a:hover {
+  background: #c4062f;
+  color: #fff;
+}
+
+.list li a.last {
+  border-right: 0;
+}
+
+.creditPage,
+.creditPage,
+.homePage {
+  text-align: center;
+}
+
+.btn-style {
+  background-color: #1a1919;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.textbox-style {
+  padding: 0;
+  height: 30px;
+  position: relative;
+  left: 0;
+  outline: none;
+  border: 1px solid #222222;
+  border-radius: 4px;
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: white;
+  font-size: 16px;
 }
